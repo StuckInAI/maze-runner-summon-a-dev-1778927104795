@@ -1,0 +1,70 @@
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.grid {
+  position: absolute;
+  inset: -20%;
+  background-image:
+    linear-gradient(rgba(138,92,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,240,255,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at 50% 50%, #000 30%, transparent 75%);
+  transform: perspective(800px) rotateX(40deg);
+  transform-origin: 50% 30%;
+  animation: drift 30s linear infinite;
+}
+
+@keyframes drift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 60px 60px, 60px 60px; }
+}
+
+.orb1, .orb2, .orb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+}
+
+.orb1 {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(255,43,214,0.55), transparent 70%);
+  top: -120px; left: -80px;
+  animation: floatA 14s ease-in-out infinite;
+}
+
+.orb2 {
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, rgba(0,240,255,0.55), transparent 70%);
+  bottom: -100px; right: -60px;
+  animation: floatB 18s ease-in-out infinite;
+}
+
+.orb3 {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(138,92,255,0.6), transparent 70%);
+  top: 40%; left: 60%;
+  animation: floatC 22s ease-in-out infinite;
+}
+
+.scan {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, rgba(0,240,255,0.06), transparent);
+  height: 240px;
+  animation: scan 7s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes floatA { 0%,100%{transform:translate(0,0);}50%{transform:translate(40px,30px);} }
+@keyframes floatB { 0%,100%{transform:translate(0,0);}50%{transform:translate(-40px,-30px);} }
+@keyframes floatC { 0%,100%{transform:translate(0,0);}50%{transform:translate(20px,-40px);} }
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(120vh); }
+}

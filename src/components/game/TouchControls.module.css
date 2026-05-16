@@ -1,0 +1,28 @@
+.pad {
+  display: grid;
+  grid-template-columns: 56px 56px 56px;
+  grid-template-rows: 56px 56px 56px;
+  gap: 6px;
+  width: 180px;
+  margin: 0 auto;
+}
+
+.btn {
+  background: rgba(20, 10, 50, 0.6);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(8px);
+  transition: transform 0.1s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover { background: rgba(138,92,255,0.15); box-shadow: 0 0 14px rgba(0,240,255,0.3); }
+.btn:active { transform: scale(0.95); }
+
+.up    { grid-column: 2; grid-row: 1; }
+.left  { grid-column: 1; grid-row: 2; }
+.right { grid-column: 3; grid-row: 2; }
+.down  { grid-column: 2; grid-row: 3; }
+.center { grid-column: 2; grid-row: 2; }
